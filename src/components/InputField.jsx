@@ -5,7 +5,7 @@ export default function InputField({fieldName, fieldKey, inputValue, onInputChan
     onInputChange(fieldKey, value);
   }
 
-  return <>
+  return <p>
     <label className="label">{fieldName}</label>
     <input
         type="number"
@@ -13,5 +13,5 @@ export default function InputField({fieldName, fieldKey, inputValue, onInputChan
         value={inputValue}
         onChange={handleInputChange}
     />
-  </>
+  </p>
 }

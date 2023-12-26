@@ -1,6 +1,7 @@
 import UserInput from "./components/UserInput.jsx";
 import ResultTable from "./components/ResultTable.jsx";
 import {useState} from "react";
+import Header from "./components/Header.jsx";
 
 const INITIAL_INPUT_DATA = {
   initialInvestment: 0,
@@ -14,9 +15,11 @@ function App() {
   const [inputData, setInputData] = useState(INITIAL_INPUT_DATA);
 
   function handleInputChange(fieldKey, inputValue) {
-    setInputData({
-      ...inputData,
-      [fieldKey]: inputValue
+    setInputData(currentInputData => {
+      return {
+        ...currentInputData,
+        [fieldKey]: inputValue
+      }
     });
   }
 
@@ -24,6 +27,7 @@ function App() {
 
   return (
       <>
+        <Header/>
         <UserInput inputs={inputData} onInputChange={handleInputChange}/>
         <ResultTable inputs={inputData}/>
       </>
